@@ -29,21 +29,6 @@ class Message {
         console.log(this.content);
     }
 
-    // Metoda capitalize do zmiany pierwszej litery na dużą, a pozostałych na małe
-    public capitalize(): string {
-        return this.content = this.content.charAt(0).toUpperCase() + this.content.slice(1).toLowerCase();
-    }
-
-    // Metoda toUpperCase do zmiany wszystkich liter na duże
-    public toUpperCase(): string {
-        return this.content = this.content.toUpperCase();
-    }
-
-    // Metoda toLowerCase do zmiany wszystkich liter na małe
-    public toLowerCase(): string {
-        return this.content = this.content.toLowerCase();
-    }
-
     // Metoda showColorized do wyświetlania kolorowanego tekstu w konsoli
     static showColorized(variant: MessageVariant, anyText: string): void {
         if (variant === 'success') {
@@ -109,15 +94,16 @@ class UsersData {
 };
 
 const users = new UsersData();
-users.showAll();
-users.add({ name: "Jan", age: 20 });
-users.add({ name: "Adam", age: 30 });
-users.add({ name: "Kasia", age: 23 });
-users.add({ name: "Basia", age: -6 });
-users.showAll();
-users.remove("Maurycy");
-users.remove("Adam");
-users.showAll();
+console.log("\n");
+console.info("???? Welcome to the UsersApp!");
+console.log("====================================");
+Message.showColorized(MessageVariant.Info, "Available actions");
+console.log("\n");
+console.log("list – show all users");
+console.log("add – add new user to the list");
+console.log("remove – remove user from the list");
+console.log("quit – quit the app");
+console.log("\n");
 
 const startApp = () => {
     inquirer.prompt([{
